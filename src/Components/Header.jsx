@@ -1,4 +1,9 @@
+import {useNavigate} from "react-router-dom";
+
 export const Header = ({user}) => {
+
+	const navigate = useNavigate()
+
 	return (
 		<div className="bg-zinc-900 text-white h-full bg-full grid grid-cols-[20%_40%_32%_8%]">
 			<div className="transition-colors bg-zinc-700 font-bold text-3xl hover:bg-zinc-950 hover:cursor-pointer flex justify-left pl-4 items-center">
@@ -13,7 +18,7 @@ export const Header = ({user}) => {
 				<div className="transition-colors flex text-shadow-hover items-center justify-center text-slate-300 hover:text-white font-semibold m-2 hover:bg-zinc-950 rounded-lg text-2xl hover:cursor-pointer">About</div>
 				<div className="transition-colors flex text-shadow-hover items-center justify-center text-slate-300 hover:text-white font-semibold m-2 hover:bg-zinc-950 rounded-lg text-2xl hover:cursor-pointer">Delivery</div>
 			</div>
-			<div className="transition-colors bg-zinc-700 flex items-center font-semibold text-3xl justify-center hover:bg-zinc-950 hover:cursor-pointer">{user && user.name}</div>
+			<div onClick={() => navigate("/signin")} className="transition-colors bg-zinc-700 flex items-center font-semibold text-3xl justify-center hover:bg-zinc-950 hover:cursor-pointer">{user && user.name}</div>
 		</div>
 	)
 }
