@@ -3,7 +3,10 @@ from django.core.exceptions import ValidationError
 
 UserModel = get_user_model()
 PASSWORD_MAX_LEN = 5
+
+
 def clean_data(data):
+    print(data)
     email = data['email'].strip()
     username = data['username'].strip()
     password = data['password'].strip()

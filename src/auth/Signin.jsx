@@ -21,7 +21,8 @@ export const Signin = () => {
 								"content-type": "application/json",
 							},
 							body: JSON.stringify({
-								username: usernameRef.current.value,
+								email: usernameRef.current.value,
+								username: usernameRef.current.value.split("@")[0],
 								password: passwordRef.current.value
 							})
 						})
