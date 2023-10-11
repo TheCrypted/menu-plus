@@ -30,7 +30,7 @@ def user_login(request):
         users = User.objects.all()
         for user in users:
             print(user.email, user.username)
-
+        print("Hello world")
         clean_data = validators.clean_data(request.data)
         serializer = UserLoginSer(data=clean_data)
         if serializer.is_valid(raise_exception=True):
