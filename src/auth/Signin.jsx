@@ -21,8 +21,8 @@ export const Signin = () => {
 								"content-type": "application/json",
 							},
 							body: JSON.stringify({
-								email: usernameRef.current.value,
-								username: usernameRef.current.value.split("@")[0],
+								// email: usernameRef.current.value,
+								username: usernameRef.current.value,
 								password: passwordRef.current.value
 							})
 						})
@@ -31,6 +31,7 @@ export const Signin = () => {
 							// localStorage.setItem("token", resp.token) Set the jsonwebtoken response in localstorage
 							navigate("/")
 						} else {
+							console.log(resp)
 							alert(resp.message)
 						}
 					}}>Submit

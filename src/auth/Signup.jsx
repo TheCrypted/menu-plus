@@ -12,20 +12,19 @@ export const Signup = () => {
 				<form className="h-full w-full rounded-xl p-4 pt-0 grid grid-rows-[25%_20%_20%_20%_15%]">
 					<div  className="flex items-center font-bold justify-center text-4xl">Meet + <Link className="font-light w-4/6 flex justify-end text-sm hover:underline" to="/Signin">Already a user? Signin</Link></div>
 					<input required ref={nameRef} placeholder="Enter name" className=" p-3 text-2xl font-semibold focus:outline-none bg-zinc-800 mb-2 rounded-lg" type="text"/>
-					{/*<input required ref={emailRef} placeholder="Enter password" className=" p-3 text-2xl font-semibold focus:outline-none bg-zinc-800 mb-2 rounded-lg" type="email"/>*/}
+					<input required ref={emailRef} placeholder="Enter email" className=" p-3 text-2xl font-semibold focus:outline-none bg-zinc-800 mb-2 rounded-lg" type="email"/>
 					<input required ref={passwordRef} placeholder="Enter password" className=" p-3 text-2xl font-semibold focus:outline-none bg-zinc-800 mb-2 rounded-lg" type="password"/>
 					<button className="bg-slate-900 hover:bg-slate-800 font-bold text-2xl rounded-lg" type="submit" onClick={ (e)=>{
 						e.preventDefault();
-						fetch("http://localhost:8000/accounts/signup", {
+						fetch("http://localhost:8000/accounts/signup/", {
 							method: "POST",
 							headers: {
 								"Content-type": "application/json"
 							},
 							body: JSON.stringify({
 								username: nameRef.current.value,
-								// email: emailRef.current.value,
-								password1: passwordRef.current.value,
-								password2: passwordRef.current.value
+								email: emailRef.current.value,
+								password: passwordRef.current.value
 							})
 						}).then(response => response.json())
 							.then((resp)=> {
